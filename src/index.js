@@ -57,6 +57,10 @@ function updateDogBreeds(breeds){
                 let newLi = document.createElement('li');
                 newLi.innerText = breed;
                 newLi.style.listStyleType = "none";
+                newLi.addEventListener("click", function(){
+                    newLi.style.color = "red";
+                    newLi.style.fontStyle = "italic";
+                })
                 dogBreedsUL.appendChild(newLi);
             })
      }
