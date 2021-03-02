@@ -19,53 +19,53 @@ function renderImages(images){
         pictureDiv.appendChild(img[i]);
 }
 
-function fetchDogBreeds(){
-    return fetch('https://dog.ceo/api/breeds/list/all')
-        .then(resp => resp.json())
-        .then(json => {
-            breeds = Object.keys(json.message);
-            renderDogBreeds(breeds);
-            updateDogBreeds(breeds);
-        });
-}
+// function fetchDogBreeds(){
+//     return fetch('https://dog.ceo/api/breeds/list/all')
+//         .then(resp => resp.json())
+//         .then(json => {
+//             breeds = Object.keys(json.message);
+//             renderDogBreeds(breeds);
+//             updateDogBreeds(breeds);
+//         });
+// }
 
-function renderDogBreeds(breeds){
-    const dogBreedsUL = document.querySelector("ul#dog-breeds");
+// function renderDogBreeds(breeds){
+//     const dogBreedsUL = document.querySelector("ul#dog-breeds");
 
-    for(let i = 0; i < breeds.length; i++) {
-           const newDog = document.createElement('li');
-           newDog.style.listStyleType = "none";
-           newDog.innerHTML = breeds[i];
-           newDog.addEventListener("click", function(){
-               newDog.style.color = "red";
-               newDog.style.fontStyle = "italic";
-           })
-           dogBreedsUL.appendChild(newDog);
-    }
-}
+//     for(let i = 0; i < breeds.length; i++) {
+//            const newDog = document.createElement('li');
+//            newDog.style.listStyleType = "none";
+//            newDog.innerHTML = breeds[i];
+//            newDog.addEventListener("click", function(){
+//                newDog.style.color = "red";
+//                newDog.style.fontStyle = "italic";
+//            })
+//            dogBreedsUL.appendChild(newDog);
+//     }
+// }
 
-function updateDogBreeds(breeds){
-    const dogBreedsUL = document.querySelector("ul#dog-breeds");
-    const dogList = document.querySelector("select#breed-dropdown");
+// function updateDogBreeds(breeds){
+//     const dogBreedsUL = document.querySelector("ul#dog-breeds");
+//     const dogList = document.querySelector("select#breed-dropdown");
 
-    dogList.addEventListener("change", function(event){
-        for(let i = 0; i < breeds.length; i++) {
-            let newList = breeds.filter(breed => breed.startsWith(event.target.value));
+//     dogList.addEventListener("change", function(event){
+//         for(let i = 0; i < breeds.length; i++) {
+//             let newList = breeds.filter(breed => breed.startsWith(event.target.value));
             
-            dogBreedsUL.innerText = '';
-            newList.forEach(breed => {
-                let newLi = document.createElement('li');
-                newLi.innerText = breed;
-                newLi.style.listStyleType = "none";
-                newLi.addEventListener("click", function(){
-                    newLi.style.color = "red";
-                    newLi.style.fontStyle = "italic";
-                })
-                dogBreedsUL.appendChild(newLi);
-            })
-     }
-    })
-}
+//             dogBreedsUL.innerText = '';
+//             newList.forEach(breed => {
+//                 let newLi = document.createElement('li');
+//                 newLi.innerText = breed;
+//                 newLi.style.listStyleType = "none";
+//                 newLi.addEventListener("click", function(){
+//                     newLi.style.color = "red";
+//                     newLi.style.fontStyle = "italic";
+//                 })
+//                 dogBreedsUL.appendChild(newLi);
+//             })
+//      }
+//     })
+// }
 
 document.addEventListener("DOMContentLoaded", function(){
     fetchImages();
